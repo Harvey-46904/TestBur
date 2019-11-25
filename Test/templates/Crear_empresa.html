@@ -12,5 +12,32 @@
             {{ empresa_form.as_p }}
             <button type="submit">crear</button>
     </form>
+    <table border="2">
+        <tbody>
+                <tr>
+                        <td>id</td>
+                        <td>Nombre</td>
+                        <td>Direccion</td>
+                        <td>Email</td>
+                    </tr>
+            {% for genero in empres %}
+            <tr>
+                <td>{{ genero.id }}</td>
+                <td>{{ genero.Nombre }}</td>
+                <td>{{ genero.Direccion }}</td>
+                <td>{{ genero.email }}</td>
+                <td>
+                    <a href="http://127.0.0.1:8000/Test_burn/delete/{{ genero.id }}" 
+                    onClick="return confirm('¿Seguro que quieres borrar a {{persona.nombre}}?');">
+                        Borrar
+                    </a>
+                </td>
+                <td>
+                    <a href="http://127.0.0.1:8000/Test_burn/edit/{{ genero.id }}" >Editar</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </body>
 </html>
